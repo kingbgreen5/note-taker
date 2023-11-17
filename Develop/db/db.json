@@ -1,6 +1,12 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "tip_id": "c762"
+    },
+    {
+        "tip_id": "65d2"
     }
 ]
