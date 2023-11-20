@@ -15,17 +15,19 @@ notes.get('/', (req, res) => {
 notes.post('/', (req, res) => {
   console.info(`${req.method} request received to add a tip`);
 
-  const { username, topic, tip } = req.body;
+ 
+    const { title, text, } = req.body;
 
-  if (req.body) {
-    const newTip = {
-      username,
-      tip,
-      topic,
-      tip_id: uuid(),
-    };
+    if (req.body) {
+      const newNote = {
+        title,
+        text,
+        note_id: uuid(),
+      };
+  
+  
 
-    readAndAppend(newTip, './db/db.json');
+    readAndAppend(newNote, './db/db.json');
     res.json(`note added successfully 🚀`);
   } else {
     res.error('Error in adding note');
@@ -35,5 +37,14 @@ notes.post('/', (req, res) => {
 module.exports = notes;
 
 
-
+// const handleNoteSave = () => {
+//   const newNote = {
+//     title: noteTitle.value,
+//     text: noteText.value
+//   };
+//   saveNote(newNote).then(() => {
+//     getAndRenderNotes();
+//     renderActiveNote();
+//   });
+// };
 
