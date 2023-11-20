@@ -7,7 +7,9 @@ let noteList;
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
+
   noteTitle = document.querySelector('.note-title');
+
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
@@ -53,6 +55,8 @@ const deleteNote = (id) =>
     }
   });
 
+
+
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   hide(clearBtn);
@@ -71,6 +75,9 @@ const renderActiveNote = () => {
     noteText.value = '';
   }
 };
+
+//                                                  SAVE NOTE
+
 
 const handleNoteSave = () => {
   const newNote = {
@@ -127,6 +134,10 @@ const handleRenderBtns = () => {
   }
 };
 
+
+
+
+
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
@@ -181,8 +192,14 @@ const renderNoteList = async (notes) => {
   }
 };
 
+
+
+
+
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
+
+
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
