@@ -90,6 +90,8 @@ const handleNoteSave = () => {
   });
 };
 
+
+
 // Delete the clicked note
 const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
@@ -97,7 +99,8 @@ const handleNoteDelete = (e) => {
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
-
+  console.log(noteId)
+  console.log(activeNote.id+" ActivenoteID")
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -108,6 +111,10 @@ const handleNoteDelete = (e) => {
   });
 };
 
+
+
+
+
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
@@ -115,12 +122,20 @@ const handleNoteView = (e) => {
   renderActiveNote();
 };
 
+
+
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
   show(clearBtn);
   renderActiveNote();
 };
+
+
+
+
+
+
 
 // Renders the appropriate buttons based on the state of the form
 const handleRenderBtns = () => {
@@ -155,7 +170,7 @@ const renderNoteList = async (notes) => {
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
-    spanEl.addEventListener('click', handleNoteView);
+    spanEl.addEventListener('click', handleNoteView);           // could be what handles when you click the note
 
     liEl.append(spanEl);
 
@@ -209,3 +224,5 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+module.exports = noteId;
