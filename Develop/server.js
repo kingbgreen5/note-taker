@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require("path")
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
@@ -32,25 +32,9 @@ app.get('/notes', (req, res) =>{
 });
 
 
-
-
-
-// // This works! so something is wrong with the pathing to the notes file
-
-// // Helper functions for reading and writing to the JSON file
-// const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
-
-// const db =require('./db/db.json')
-
-// app.get('/api/notes', (req, res) => {
-//   console.info(`${req.method} request received for notes`);
-//   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
-// });
-
-
-
-
-
+// Fallback route for when a user attempts to visit routes that don't exist
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+    
 
 
 
