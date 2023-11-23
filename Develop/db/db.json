@@ -3,11 +3,5 @@
         "title": "JSON",
         "text": "JavaScript Object Notation. A format for storing and transporting data. JSON is often used when data is sent from a server to a web page",
         "id": "3fa8"
-    },
-    {
-        "title": "MYSQL",
-        "text": "",
-        "id": "3bka"
     }
-
 ]
